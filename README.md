@@ -1,69 +1,74 @@
 # TextGenerator
 
-TextGenerator é uma solução de Processamento de Linguagem Natural (NLP) desenvolvida como parte do curso "NLP Engineer" da JetBrains Academy. O principal objetivo deste projeto é prever a próxima palavra em uma sequência textual (pseudo-sentença) usando modelos estatísticos de linguagem.
+TextGenerator is a Natural Language Processing (NLP) solution developed as part of the **“NLP Engineer”** course from JetBrains Academy. The main goal of this project is to **predict the next word** in a textual sequence (pseudo-sentence) using **statistical language models**.
 
-## Visão Geral da Solução
+## Overview
 
-O sistema utiliza modelos de n-gramas para analisar sequências de palavras e estimar, estatisticamente, a probabilidade de ocorrência da próxima palavra, considerando o contexto anterior. Esse tipo de abordagem é fundamental em tarefas como autocomplete, correção automática e geração de texto.
+The system uses **n-gram models** to analyze word sequences and statistically estimate the probability of the next word based on the previous context. This approach is fundamental in tasks such as **autocomplete**, **spell correction**, and **text generation**.
 
-### Principais Funcionalidades
+### Key Features
 
-- Treinamento de modelos n-gramas (bigramas, trigramas, etc.) a partir de corpus textual customizado.
-- Inferência: Sugestão da próxima palavra em uma sequência baseada no contexto.
-- Manipulação e pré-processamento de texto (tokenização, normalização).
-- Suporte a diferentes tamanhos de n-gramas configuráveis pelo usuário.
+* Training of n-gram models (bigrams, trigrams, etc.) from a custom text corpus.
+* Inference: Suggests the next word in a sequence based on context.
+* Text manipulation and preprocessing (tokenization, normalization).
+* Support for different n-gram sizes configurable by the user.
 
-## Arquitetura e Algoritmos
+## Architecture and Algorithms
 
-O núcleo da aplicação é composto por:
+The core of the application is composed of:
 
-- **Tokenização:** Separação do texto em unidades (tokens) para análise.
-- **Construção do Modelo n-Grama:** Criação de um dicionário de frequências de n-gramas extraídos do corpus.
-- **Predição:** Dada uma sequência de texto, o algoritmo busca o n-grama correspondente e sugere a próxima palavra com maior probabilidade de ocorrência.
+* **Tokenization:** Splits text into units (tokens) for analysis.
+* **n-Gram Model Construction:** Builds a frequency dictionary of n-grams extracted from the corpus.
+* **Prediction:** Given a text sequence, the algorithm finds the corresponding n-gram and suggests the next word with the highest probability of occurrence.
 
-O sistema pode ser facilmente adaptado para outros idiomas e corpus mediante alteração dos dados de entrada.
+The system can be easily adapted for other languages and corpora by changing the input data.
 
-## Dependências
+## Dependencies
 
-- Python 3.8+
-- Bibliotecas: `nltk`, `numpy`, `pandas` (confirme conforme requirements.txt)
+* Python 3.8+
+* Libraries: `nltk`, `numpy`, `pandas` (check `requirements.txt`)
 
-Para instalar as dependências:
+To install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-## Uso
+## Usage
 
-1. **Treinamento:**
-   - Adicione seu corpus de texto ao diretório de dados.
-   - Execute o script principal para treinar o modelo:
+1. **Training:**
+
+   * Add your text corpus to the data directory.
+   * Run the main script to train the model:
+
      ```bash
-     python main.py --train --corpus data/meu_corpus.txt
+     python main.py --train --corpus data/my_corpus.txt
      ```
 
-2. **Predição:**
-   - Gere a próxima palavra informando uma sequência:
+2. **Prediction:**
+
+   * Generate the next word by providing a sequence:
+
      ```bash
-     python main.py --predict "A inteligência artificial"
+     python main.py --predict "Artificial intelligence"
      ```
 
-## Exemplos
+## Examples
 
 ```python
-# Exemplo de uso em Python
+# Example usage in Python
 from text_generator import TextGenerator
 
-tg = TextGenerator('data/meu_corpus.txt', n=3)
+tg = TextGenerator('data/my_corpus.txt', n=3)
 tg.train()
-print(tg.predict_next("A inteligência artificial"))
+print(tg.predict_next("Artificial intelligence"))
 ```
 
-## Referências
+## References
 
-- [Curso NLP Engineer - JetBrains Academy](https://hyperskill.org/tracks/15)
-- Jurafsky, D.; Martin, J. H. - Speech and Language Processing. 3rd Edition.
+* [NLP Engineer Course - JetBrains Academy](https://hyperskill.org/tracks/15)
+* Jurafsky, D.; Martin, J. H. - *Speech and Language Processing*, 3rd Edition.
 
-## Licença
+## License
 
-Distribuído sob a licença MIT.
+Distributed under the **MIT License**.
